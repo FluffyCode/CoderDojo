@@ -1,4 +1,4 @@
-Shotes.app :width => 900, :height => 625 do
+Shoes.app :width => 900, :height => 625 do
 	background black
 	blue = "#0000FF"
 
