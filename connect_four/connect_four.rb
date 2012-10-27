@@ -17,7 +17,7 @@ Shoes.app :width => 900, :height => 625 do
 		button, x, y = self.mouse
 
 		if button == 1
-			alert("Mouse is clicked at #{x}, #{y}.")
+			alert("Mouse is clicked at #{x/100}, #{y/100}.")
 		end
 	end
 
