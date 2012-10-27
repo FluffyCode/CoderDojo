@@ -5,6 +5,7 @@ Shoes.app :width => 900, :height => 625 do
 
 	@turn = 0
 	@board = []
+	@picked = []
 
 	# Build the grid
 	6.times do |row|
@@ -20,11 +21,20 @@ Shoes.app :width => 900, :height => 625 do
 
 		column = x / 100
 		row = y / 100
-		over_x = x % 100
-		over_y = y % 100
 
 		if button == 1
-			
+			if !@picked.include?(7 * row + column)
+				@turn += 1
+
+				if @turn % 2 == 1
+					color = red
+				else
+					color = black
+				end
+
+				@board[(7 * row) + column].style(:fill => color)
+				@picked << (7 * row + column)
+			end
 		end
 	end
 
