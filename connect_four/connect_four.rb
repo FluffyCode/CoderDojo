@@ -26,6 +26,8 @@ Shoes.app :width => 900, :height => 625 do
 		if button == 1
 			if (5..105).include?(over_x)
 				if (5..105).include?(over_y)
+					@turn += 1
+
 					@board[(7 * row) + column].style(:fill => red)
 				end
 			end
