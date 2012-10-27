@@ -2,6 +2,8 @@ Shoes.app :width => 900, :height => 625 do
 	white = "#FFFFFF"
 	black = "#000000"
 	red = "#FF0000"
+
+	@turn = 0
 	@board = []
 
 	# Build the grid
