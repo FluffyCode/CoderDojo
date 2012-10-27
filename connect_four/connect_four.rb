@@ -16,8 +16,17 @@ Shoes.app :width => 900, :height => 625 do
 	animate do
 		button, x, y = self.mouse
 
+		column = x / 100
+		row = y / 100
+		over_x = x % 100
+		over_y = y % 100
+
 		if button == 1
-			alert("Mouse is clicked at #{x/100}, #{y/100}.")
+			if (5..105).include?(over_x)
+				if (5..105).include?(over_y)
+					alert("You clicked in a square!")
+				end
+			end
 		end
 	end
 
