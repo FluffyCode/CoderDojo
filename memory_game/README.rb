@@ -1,4 +1,5 @@
-# Memory game - creadted during/for CoderDojo.
+# October 13th GitHub CoderDojo session - headed by Kevin Clark:
+	# https://github.com/kevinclark
 
 # Created Saturday, 9/15/2012
 # Additionally modified:
