@@ -14,7 +14,7 @@ Shoes.app :width => 900, :height => 625 do
 	end
 
 	animate do
-		button, x, y, self.mouse
+		button, x, y = self.mouse
 
 		if button == 1
 			alert
