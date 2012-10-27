@@ -28,7 +28,13 @@ Shoes.app :width => 900, :height => 625 do
 				if (5..105).include?(over_y)
 					@turn += 1
 
-					@board[(7 * row) + column].style(:fill => red)
+					if @turn % 2 == 1
+						color = red
+					else
+						color = black
+					end
+
+					@board[(7 * row) + column].style(:fill => color)
 				end
 			end
 		end
