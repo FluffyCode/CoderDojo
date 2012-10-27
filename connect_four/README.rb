@@ -3,4 +3,3 @@
 
 	# The lesson plan for the Connect-Four game:
 	# https://github.com/brntbeer/lesson-plans/blob/connect-four/shoes/connect-four.md
-
