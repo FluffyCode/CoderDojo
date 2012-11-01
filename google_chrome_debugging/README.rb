@@ -5,4 +5,3 @@
 	# https://github.com/hcopperm/coderdojo_debugging/blob/master/debugging.md
 
 # Created Saturday, 10/13/2012
-	
