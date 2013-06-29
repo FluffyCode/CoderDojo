@@ -1,0 +1,37 @@
+Network: GitHub Guest
+Password: octocat11
+
+
+
+(install Sublime Text 2)
+
+Download base working directory, instructions, etc...
+http://bit.ly/dojo-1
+(note that this should not load a web page - it should just initialize
+a downloader for the .zip file containing procject files.)
+
+
+
+open index.html in Chrome
+
+open map.js in Sublime Text 2
+	try changing some numbers around - then, in the browser, reload the page and watch the changes!
+
+make note of map.gif - sprite sheet for the map.js file
+	play around with replacing numbers to make a map you like!
+
+
+
+10-min break
+
+
+
+Download starter pack...
+http://bit.ly/dojo-game
+
+open up game directory, and load index.html in Chrome.
+
+then, open it up in Sublime Text 2
+	woah! That array is far larger than the introductory file!
+	that's okay, we want a nice, big map to make our world in.
+	currently, everything is just black...go ahead and reference the sprite sheet to make a nice, colorful world!
