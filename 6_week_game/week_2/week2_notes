@@ -1,0 +1,195 @@
+Download lesson file:
+	http://bit.ly/dojo-2
+
+Open the file in your browser, and use the arrows to move around
+Uh oh - we can't move up or down, and we can go all the way off the map! Yikes!
+
+Open character.js file in Sublime Text - we'll want to make some changes in it!
+Basically, duplicate what we have for the x-axis, and rename it for the y-axis.
+	Don't forget - we need -= y for up, and += y for down!
+
+Set speed = some_num just above function movement()
+Then, inside function movement(), ensure:
+	x += 1 * speed
+	x -= 1 * speed
+	y += 1 * speed
+	y -= 1 * speed
+This will make sure our character moves the same speed/rate in all directions
+
+Awesome - our character moves rather consistently!
+However, it always faces the same direction.
+
+Make note of character.frame near the section of character sprite stats.
+We can change the facing direction as follows:
+	// (right)
+	x += 1 * speed
+	character.frame = 6
+
+	// (left)
+	x -= 1 * speed
+	character.frame = 3
+
+	// (down)
+	y += 1 * speed
+	character.frame = 0
+
+	// (up)
+	y -= 1 * speed
+	character.frame = 9
+
+Now our character faces the appropriate moving direction! Awesome!
+On the sprite sheet:
+	Frames [0, 1, 2] correspond to downward-facing directions
+	Frames [3, 4, 5] correspond to left-facing directions
+	Frames [6, 7, 8] correspond to right-facing directions
+	Frames [9, 10, 11] correspond to up-facing directions
+Let's set up a random number generator so that the program picks a random frame per moving direction:
+	0, 1 or 2 for downwards movement
+	3, 4 or 5 for leftwards movement
+	6, 7 or 8 for rightwards movement
+	9, 10 or 11 for upwards movement
+
+Change the facing directions as follows:
+	// (right)
+	x += 1 * speed
+	character.frame = Math.floor(Math.random()*3) + 6
+
+	// (left)
+	x -= 1 * speed
+	character.frame = Math.floor(Math.random()*3) + 3
+
+	// (down)
+	y += 1 * speed
+	character.frame = Math.floor(Math.random()*3)
+
+	// (up)
+	y -= 1 * speed
+	character.frame = Math.floor(Math.random()*3) + 9
+
+Now, let's work on collision detection - first, we'll ensure our character doesn't go walking off the map!
+
+Go to & download the map collision file:
+	http://bit.ly/dojo-2-map
+
+open the file, and copy/paste map.collisionData = [...]
+	(yes, the entire array)
+...into map.js, just below the map array.
+
+Then, back in the character.js file, below the character directions/movement (but still inside the function), add:
+	var top = y
+	var bottom = y + 32
+	var left = x
+	var right = x + 32
+
+	if (map.hitTest(left, top)) {
+		x += 2
+		y += 2
+	}
+
+	if (map.hitTest(right, top)) {
+		x -= 2
+		y += 2
+	}
+
+	if (map.hitTest(left, bottom)) {
+		x += 2
+		y -= 2
+	}
+
+	if (map.hitTest(right, bottom)) {
+		x -= 2
+		y -= 2
+	}
+
+	// These two are alrady in place
+	this.x = x
+	this.y = y
+
+This will make our character 'bounce' back into the main region of the map if we try to move out of it.
+	(note, we can sortakinda 'smuggle' ourselves out through the corners, and may have difficulty getting back in)
+
+Next changes:
+	if (map.hitTest(left, top)) {
+		if (this.x != x) {
+			x += 2
+		}
+		if (this.y != y) {
+			y += 2
+		}		
+	}
+
+	if (map.hitTest(right, top)) {
+		if (this.x != x) {
+			x -= 2
+		}
+		if (this.y != y) {
+			y += 2
+		}
+	}
+
+	if (map.hitTest(left, bottom)) {
+		if (this.x != x) {
+			x += 2
+		}
+		if (this.y != y) {
+			y -= 2
+		}
+	}
+
+	if (map.hitTest(right, bottom)) {
+		if (this.x != x) {
+			x -= 2
+		}
+		if (this.y != y) {
+			y -= 2
+		}
+	}
+
+	// These two are alrady in place
+	this.x = x
+	this.y = y
+
+Another problem - our character might be able to 'get ahead' of the collision detection, and break out through the sides.
+To prevent, this, ensure that +=/-= make use of 'speed' to match the speed of the character:
+	if (map.hitTest(left, top)) {
+		if (this.x != x) {
+			x += speed
+		}
+		if (this.y != y) {
+			y += speed
+		}		
+	}
+
+	if (map.hitTest(right, top)) {
+		if (this.x != x) {
+			x -= speed
+		}
+		if (this.y != y) {
+			y += speed
+		}
+	}
+
+	if (map.hitTest(left, bottom)) {
+		if (this.x != x) {
+			x += speed
+		}
+		if (this.y != y) {
+			y -= speed
+		}
+	}
+
+	if (map.hitTest(right, bottom)) {
+		if (this.x != x) {
+			x -= speed
+		}
+		if (this.y != y) {
+			y -= speed
+		}
+	}
+
+	// These two are alrady in place
+	this.x = x
+	this.y = y
+
+For a larger collision map for the main game project, download:
+	http://bit.ly/dojo-game-map
