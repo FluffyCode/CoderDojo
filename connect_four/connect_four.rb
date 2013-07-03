@@ -80,7 +80,7 @@ Shoes.app :width => 900, :height => 625 do
 		false
 	end
 
-  #loop through all columns to see if any given column contains
+  # loop through all columns to see if any given column contains
   # 4 continuous blocks of one color.
   # for each column, add 0, 7, 14, 21, 28, 35
 	def vertical_win(color)
