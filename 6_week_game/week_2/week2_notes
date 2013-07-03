@@ -68,7 +68,7 @@ Change the facing directions as follows:
 
 Now, let's work on collision detection - first, we'll ensure our character doesn't go walking off the map!
 
-Go to & download the map collision file:
+Go to & copy/paste the map collision file:
 	http://bit.ly/dojo-2-map
 
 open the file, and copy/paste map.collisionData = [...]
@@ -115,7 +115,7 @@ Next changes:
 		}
 		if (this.y != y) {
 			y += 2
-		}		
+		}
 	}
 
 	if (map.hitTest(right, top)) {
