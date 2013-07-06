@@ -1,0 +1,43 @@
+download and unzip the example lesson for week 3:
+	http://bit.ly/dojo-3
+
+(working in objects.js)
+
+add line 10 (below) into function pitframe()'s if-statement:
+
+function pitframe() {
+	if (character.interesct(pit)) {
+		resetGame()
+	}
+}
+
+this will reset the game if our character falls into the pit!
+
+then, just below 'pit' in objects.js is 'pot' - and just below that is a section for flowers.
+ignore 'pot' for now - we'll get back to it later.
+
+in the flowers section:
+	play around with flowers.x and flowers.y to change where our flowers appear on our map
+
+now, back to our pot!
+add line 28 (below) to get the pot to appear when we walk over the flowers:
+
+function flowersframe() {
+	if (character.intersect(flowers) && !potVisible) {
+		potVisible = true
+		game.rootScene.addChild(pot)
+	}
+}
+
+looking at our sprite sheet, we see that the sprite number for the treasure box is 25
+try adding a treasure box object somewhere on your map (in objects.js)
+
+after lunch...image editing!
+
+goto & download:
+	pickleeditor.com
+
+then goto & download:
+	bit.ly/dojosprite1
+
+	right-click and save somewhere that is easily accessible
