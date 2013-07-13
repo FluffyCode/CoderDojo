@@ -1,0 +1,39 @@
+Week 4 - Sound & Music in games
+
+In your browser, go to and download week/lesson 4's base package:
+	http://bit.ly/dojo-4
+
+Open up objects.js
+Look at line 14 (in the pitframe() function)
+	note the use of the 'sounds/pit.wav' sound file
+
+Then, in the lib directory, open up game.js
+Look at line 6-7, in game.preload - note the preloaded files
+There's a call for 'appear.wav', but it is not in use.  Let's add it!
+
+Back in objects.js, look for the flowersframe() function
+	within here, look for a place to put the 'appear.wav' sound (hint: we want
+	it to play when we walk over the flowers to make the pot appear).
+
+	make a couple spaces, and add it on line 106 (just beneath EASEOUT):
+		game.assets['sounds/appear.wav'].play()
+
+Now, for 'bump.wav' - we'll make use of it whenever the player character bumps into the pot
+	open game.js, and in game.preload, add 'sounds/bump.wav'
+
+	then, back inside objects.js - look for the potframe() function
+	just beneath 'character.blocked = true', add:
+		game.assets['sounds/bump.wav'].play
+
+Now, for looping background music
+	Add 'music/goodvibes.wav' to the game.preload in game.js
+		ULTRA IMPORTANT: make sure the source is 'music/goodvibes.wav', not 'sounds/goodvibes.wav'
+
+	in the README, copy-and-paste the chunk of code (lines 93-100) into map.js
+		below '// Add music here' (just above the map)
+
+For a sound-effect generating tool:
+	bit.ly/as3sfxr
+
+	use this tool to create a sound fitting for the pot falling into the hole, then implement
+	it into the game!
